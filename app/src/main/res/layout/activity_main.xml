@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:background="#FFEE02"
+                android:baselineAligned="false"
+                android:iconifiedByDefault="false"
+                android:queryHint="Tìm trên AutoBook!"
+                android:queryBackground="@android:color/transparent"
+                tools:ignore="InvalidId">
+            </SearchView>
+
+            <TextView
+                android:id="@+id/newCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="10dp"
+                android:text="Xe mới ra mắt"
+                android:textSize="29dp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lstNewCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/bestSelledCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="10dp"
+                android:text="Xe mới bán chạy"
+                android:textSize="29dp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lstBestSelledCar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <TextView
+                android:id="@+id/carByBrand"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="10dp"
+                android:text="Xe theo hãng"
+                android:textSize="29dp"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/lstCarByName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
