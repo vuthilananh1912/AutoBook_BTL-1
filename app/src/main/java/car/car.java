@@ -5,6 +5,7 @@ public class car {
     private int product_code, namSX, sl;
     private String name, brand, color;
 //thảo
+    //:Long
     public car(byte[] img1, byte[] img2, byte[] img3, int product_code, int namSX, int sl, String name, String brand, String color) {
         this.img1 = img1;
         this.img2 = img2;
