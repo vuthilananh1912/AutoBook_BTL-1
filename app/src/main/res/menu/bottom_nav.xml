@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/newCarItem"
+        android:icon="@drawable/round_electric_car_24"
+        android:title="Xe mới ra mắt"/>
+    <item
+        android:id="@+id/bestSelledItem"
+        android:icon="@drawable/round_departure_board_24"
+        android:title="Xe bán chạy"/>
+    <item
+        android:id="@+id/brandItem"
+        android:icon="@drawable/round_loyalty_24"
+        android:title="Xe theo hãng"/>
+</menu>
