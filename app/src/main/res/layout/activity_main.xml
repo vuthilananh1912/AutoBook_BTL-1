@@ -28,43 +28,7 @@
         android:textSize="29dp"
         android:textStyle="bold" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/ic_round_person_24">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tên đăng nhập"
-            android:textSize="18dp"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="222dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        app:endIconMode="password_toggle"
-        app:startIconDrawable="@drawable/ic_round_vpn_key_24"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mật khẩu"
-            android:textSize="18dp"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"

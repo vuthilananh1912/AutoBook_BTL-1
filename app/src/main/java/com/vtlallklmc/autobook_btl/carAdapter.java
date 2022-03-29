@@ -1,4 +1,4 @@
-package car;
+package com.vtlallklmc.autobook_btl;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -7,12 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.vtlallklmc.autobook_btl.R;
 
 import java.io.ByteArrayOutputStream;
 import java.util.List;

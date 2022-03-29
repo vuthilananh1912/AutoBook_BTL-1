@@ -8,8 +8,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import java.util.List;
-
 public class carDBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "car.db";
     public static final int DB_VER = 1;
@@ -45,7 +43,7 @@ public class carDBHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(sql);
         onCreate(sqLiteDatabase);
     }
-    public void insertCar(car.car car){
+    public void insertCar(car car){
         ContentValues contentValues = new ContentValues();
         contentValues.put("product_code", PRODUCT_CODE);
         contentValues.put("name", NAME);
@@ -63,7 +61,7 @@ public class carDBHelper extends SQLiteOpenHelper {
             Toast.makeText(context, "Thêm thành công", Toast.LENGTH_SHORT).show();
         else Toast.makeText(context, "Thêm thất bại", Toast.LENGTH_SHORT).show();
     }
-//    public void updateCar(car.car car, int product_code){
+//    public void updateCar(com.vtlallklmc.autobook_btl.car car, int product_code){
 //        ContentValues cvUpdate = new ContentValues();
 //        cvUpdate.put("product_code", PRODUCT_CODE);
 //        cvUpdate.put("name", NAME);
