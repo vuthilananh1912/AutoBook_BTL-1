@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="144dp"
+    android:layout_height="123dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardCornerRadius="52px"
     android:layout_marginTop="10dp"
@@ -25,9 +25,8 @@
             android:text="Mercedes C-200"
             android:textColor="@color/white"
             android:textSize="24dp"
-            android:translationX="10dp"
-            android:translationY="100dp">
-        </TextView>
+            android:translationX="20dp"
+            android:translationY="80dp"></TextView>
 
     </RelativeLayout>
 
