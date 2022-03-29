@@ -1,66 +1,50 @@
 package com.vtlallklmc.autobook_btl;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.w3c.dom.Text;
+
 import java.io.ByteArrayOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
-public class carAdapter extends RecyclerView.Adapter<carAdapter.carViewHolder>{
-
-    private List<car> lstCar; //khai báo ds xe
-
-    public void setData(List<car> lst){ //phương thức thiết lập dữ liệu
-        this.lstCar= lst;
-        notifyDataSetChanged(); //thông báo dữ liệu đã thay đổi
+public class carAdapter extends ArrayAdapter<car> {
+    public carAdapter(Context context, ArrayList<car> lstCar){
+        super(context,0,lstCar);
     }
 
     @NonNull
     @Override
-    public carViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_car, parent, false); //khởi tạo ghép view với layout item_car
-        return new carViewHolder(view);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull carViewHolder holder, int position) {
-        car car = lstCar.get(position);
-        if(car == null){
-            return;
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        View currenView = convertView;
+        if(currenView == null){
+            currenView = LayoutInflater.from(getContext()).inflate(R.layout.item_car,parent,false);
         }
-        Bitmap bitmap = BitmapFactory.decodeFile(String.valueOf(R.drawable.c200_3));
-        ByteArrayOutputStream byteArray = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG,100,byteArray);
-        byte[] img = byteArray.toByteArray();
-//        holder.img_car.setImageResource(car.getImg1()); //lấy id của ảnh item car
-        holder.car_name.setText(car.getName()); // lấy tên của item car
-    }
 
-    @Override
-    public int getItemCount() {
-        //kiểm tra rỗng
-        if(lstCar != null)
-            return lstCar.size();
-        return 0;
-    }
+        car car = getItem(position);
 
-    public class carViewHolder extends RecyclerView.ViewHolder{
-        private ImageView img_car;
-        private TextView car_name;
+        TextView tvName = currenView.findViewById(R.id.car_name); //ánh xạ
+        ImageView imgXe = currenView.findViewById(R.id.img_car);
 
-        public carViewHolder(@NonNull View itemView) {
-            super(itemView);
+        tvName.setText(car.getName());
 
-            img_car = itemView.findViewById(R.id.img_car); //ánh xạ địa chỉ
-            car_name = itemView.findViewById(R.id.car_name); //too
-        }
+        //chuyển dạng mảng byte thành image
+        Bitmap bitmap = BitmapFactory.decodeByteArray(car.getImg1(),0,car.getImg1().length);
+        imgXe.setImageBitmap(bitmap);
+        //
+
+        return currenView;
     }
 }
