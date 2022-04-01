@@ -1,11 +1,13 @@
 package com.vtlallklmc.autobook_btl;
 
+import android.net.Uri;
+
 public class car {
-    private byte[] img1, img2, img3;
+    private int img1, img2, img3;
     private int product_code, namSX, sl;
     private String name, brand, color;
 
-    public car(byte[] img1, byte[] img2, byte[] img3, int product_code, int namSX, int sl, String name, String brand, String color) {
+    public car(int img1, int img2, int img3, int product_code, int namSX, int sl, String name, String brand, String color) {
         this.img1 = img1;
         this.img2 = img2;
         this.img3 = img3;
@@ -17,27 +19,27 @@ public class car {
         this.color = color;
     }
 
-    public byte[] getImg1() {
+    public int getImg1() {
         return img1;
     }
 
-    public void setImg1(byte[] img1) {
+    public void setImg1(int img1) {
         this.img1 = img1;
     }
 
-    public byte[] getImg2() {
+    public int getImg2() {
         return img2;
     }
 
-    public void setImg2(byte[] img2) {
+    public void setImg2(int img2) {
         this.img2 = img2;
     }
 
-    public byte[] getImg3() {
+    public int getImg3() {
         return img3;
     }
 
-    public void setImg3(byte[] img3) {
+    public void setImg3(int img3) {
         this.img3 = img3;
     }
 

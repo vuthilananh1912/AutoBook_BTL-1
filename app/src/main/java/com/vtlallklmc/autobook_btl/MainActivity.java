@@ -14,17 +14,19 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
     ViewPager viewPager;
 
+    carDBHelper carDBHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-
         navigationView = findViewById(R.id.bottom_nav);
         viewPager = findViewById(R.id.view_pager);
 
         setUpViewPager();
+
+        carDBHelper = new carDBHelper(MainActivity.this);
 
         navigationView.setOnNavigationItemSelectedListener(item ->  {
                 switch (item.getItemId()){

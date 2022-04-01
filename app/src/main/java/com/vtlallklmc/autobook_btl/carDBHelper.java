@@ -16,13 +16,32 @@ import java.io.ByteArrayOutputStream;
 public class carDBHelper extends SQLiteOpenHelper {
     public static final String DB_NAME = "car.db";
     public static final int DB_VER = 1;
+
     public static String TB_NAME = "tblCar";
+
     public static String NAMSX = "nam_sx", SL = "soluong", DUNGTICH = "dung_tich", HOPSO = "hop_so", MUCTIEUTHU = "muc_tieu_thu", VMAX = "v_max", GIA = "gia";
     public static String NAME = "name", PRODUCT_CODE = "product_code", BRAND = "brand", COLOR = "color", IMG_CODE1 = "image_code1", IMG_CODE2 = "image_code2", IMG_CODE3 = "image_code3";
+
     public Context context;
 
     private String SQLQuery = "INSERT INTO tblCar VALUES " +
-            "(null,'BMW 320i GT 2016','BMW','Trắng','2016','4',";
+            "(null,'BMW 320i GT 2016','BMW','Trắng',2016,4,'https://img1.oto.com.vn/crop/575x430/2022/02/18/20220218162001-dcd1_wm.jpg','https://img1.oto.com.vn/crop/575x430/2022/02/18/20220218162000-fbeb_wm.jpg','https://img1.oto.com.vn/crop/575x430/2022/02/18/20220218162000-aa5c_wm.jpg','3359 cc','Tự dộng','7.2l xăng/100km','280 km/h',1350000000)";
+
+    private String sql = "CREATE TABLE IF NOT EXISTS "+TB_NAME+" ("
+            + PRODUCT_CODE + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + NAME + " TEXT, "
+            + BRAND + " TEXT, "
+            + COLOR + " TEXT, "
+            + NAMSX + " INTEGER, "
+            + SL + " INTEGER, "
+            + IMG_CODE1 + " TEXT, "
+            + IMG_CODE2 + " TEXT, "
+            + IMG_CODE3 + " TEXT, "
+            + DUNGTICH + " TEXT, "
+            + HOPSO + " TEXT, "
+            + MUCTIEUTHU + " TEXT, "
+            + VMAX + " TEXT, "
+            + GIA + " REAL); ";
 
     public carDBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VER);
@@ -31,22 +50,8 @@ public class carDBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String sql = "CREATE TABLE "+TB_NAME+" ("
-                + PRODUCT_CODE + " INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + NAME + " TEXT, "
-                + BRAND + " TEXT, "
-                + COLOR + " TEXT, "
-                + NAMSX + " INTEGER, "
-                + SL + " INTEGER, "
-                + IMG_CODE1 + " BLOB, "
-                + IMG_CODE2 + " BLOB, "
-                + IMG_CODE3 + " BLOB, "
-                + DUNGTICH + " REAL, "
-                + HOPSO + " TEXT, "
-                + MUCTIEUTHU + " REAL, "
-                + VMAX + " REAL, "
-                + GIA + " REAL); ";
         sqLiteDatabase.execSQL(sql);
+//        sqLiteDatabase.execSQL(SQLQuery);
     }
 
     @Override

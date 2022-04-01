@@ -39,10 +39,11 @@ public class carAdapter extends ArrayAdapter<car> {
         ImageView imgXe = currenView.findViewById(R.id.img_car);
 
         tvName.setText(car.getName());
+        imgXe.setImageResource(car.getImg1());
 
         //chuyển dạng mảng byte thành image
-        Bitmap bitmap = BitmapFactory.decodeByteArray(car.getImg1(),0,car.getImg1().length);
-        imgXe.setImageBitmap(bitmap);
+//        Bitmap bitmap = BitmapFactory.decodeByteArray(car.getImg1(),0,car.getImg1().length);
+//        imgXe.setImageBitmap(bitmap);
         //
 
         return currenView;
