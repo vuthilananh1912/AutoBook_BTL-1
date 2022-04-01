@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/c200_3" />
+            app:srcCompat="@drawable/bmw_1" />
 
         <TextView
             android:id="@+id/car_name"
@@ -26,7 +26,8 @@
             android:textColor="@color/white"
             android:textSize="24dp"
             android:translationX="20dp"
-            android:translationY="80dp"></TextView>
+            android:translationY="10dp"
+            android:textStyle="bold"></TextView>
 
     </RelativeLayout>
 

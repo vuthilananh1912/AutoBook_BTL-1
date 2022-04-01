@@ -1,8 +1,6 @@
 package com.vtlallklmc.autobook_btl;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,16 +10,11 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 
-import org.w3c.dom.Text;
-
-import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
-public class carAdapter extends ArrayAdapter<car> {
-    public carAdapter(Context context, ArrayList<car> lstCar){
+public class CarAdapter extends ArrayAdapter<Car> {
+    public CarAdapter(Context context, ArrayList<Car> lstCar){
         super(context,0,lstCar);
     }
 
@@ -33,7 +26,7 @@ public class carAdapter extends ArrayAdapter<car> {
             currenView = LayoutInflater.from(getContext()).inflate(R.layout.item_car,parent,false);
         }
 
-        car car = getItem(position);
+        Car car = getItem(position);
 
         TextView tvName = currenView.findViewById(R.id.car_name); //ánh xạ
         ImageView imgXe = currenView.findViewById(R.id.img_car);

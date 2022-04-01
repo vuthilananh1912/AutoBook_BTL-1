@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -14,8 +16,8 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView navigationView;
     ViewPager viewPager;
 
-    carDBHelper carDBHelper;
-
+    CarDBHelper carDBHelper;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +27,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager = findViewById(R.id.view_pager);
 
         setUpViewPager();
-
-        carDBHelper = new carDBHelper(MainActivity.this);
 
         navigationView.setOnNavigationItemSelectedListener(item ->  {
                 switch (item.getItemId()){

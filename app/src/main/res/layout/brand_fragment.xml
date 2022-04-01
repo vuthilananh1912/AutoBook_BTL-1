@@ -10,11 +10,11 @@
         android:layout_below="@+id/search_bar"
         android:layout_marginLeft="26dp"
         android:layout_marginTop="18dp"
-        android:text="Xe mới ra mắt"
+        android:text="Xe theo hãng"
         android:textSize="29dp"
         android:textStyle="bold" />
     <ListView
-        android:id="@+id/lvNewCar"
+        android:id="@+id/lvBrand"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_nav"
