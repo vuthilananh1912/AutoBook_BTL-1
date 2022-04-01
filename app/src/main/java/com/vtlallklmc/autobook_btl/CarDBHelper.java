@@ -49,8 +49,8 @@ public class CarDBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(sql);
-        sqLiteDatabase.execSQL(SQLQuery);
-        sqLiteDatabase.execSQL(SQLQuery1);
+//        sqLiteDatabase.execSQL(SQLQuery);
+//        sqLiteDatabase.execSQL(SQLQuery1);
     }
 
     @Override

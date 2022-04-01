@@ -13,29 +13,31 @@ public class DatabaseData {
     Context context;
 
     public DatabaseData(Context context) {
+
+        this.context = context;
         this.carDBHelper = new CarDBHelper(context);
     }
     public void insertCar(Car car){
         ContentValues contentValues = new ContentValues();
 
-        contentValues.put("product_code", car.getProduct_code());
-        contentValues.put("name", car.getName());
-        contentValues.put("brand", car.getBrand());
-        contentValues.put("color", car.getColor());
-        contentValues.put("namSX", car.getNamsx());
-        contentValues.put("sl", car.getSl());
-        contentValues.put("img1", car.getImg1());
-        contentValues.put("img2",car.getImg2());
-        contentValues.put("img3", car.getImg3());
-        contentValues.put("dungtich", car.getDungtich());
-        contentValues.put("hopso", car.getHopso());
-        contentValues.put("muctieuthu", car.getMuctieuthu());
-        contentValues.put("vmax", car.getVmax());
-        contentValues.put("gia", car.getGia());
+        contentValues.put(CarDBHelper.PRODUCT_CODE, car.getProduct_code());
+        contentValues.put(CarDBHelper.NAME, car.getName());
+        contentValues.put(CarDBHelper.BRAND, car.getBrand());
+        contentValues.put(CarDBHelper.COLOR, car.getColor());
+        contentValues.put(CarDBHelper.NAMSX, car.getNamsx());
+        contentValues.put(CarDBHelper.SL, car.getSl());
+        contentValues.put(CarDBHelper.IMG_CODE1, car.getImg1());
+        contentValues.put(CarDBHelper.IMG_CODE2,car.getImg2());
+        contentValues.put(CarDBHelper.IMG_CODE3, car.getImg3());
+        contentValues.put(CarDBHelper.DUNGTICH, car.getDungtich());
+        contentValues.put(CarDBHelper.HOPSO, car.getHopso());
+        contentValues.put(CarDBHelper.MUCTIEUTHU, car.getMuctieuthu());
+        contentValues.put(CarDBHelper.VMAX, car.getVmax());
+        contentValues.put(CarDBHelper.GIA, car.getGia());
 
         SQLiteDatabase db = carDBHelper.getWritableDatabase();
         long result = db.insert(CarDBHelper.TB_NAME,null,contentValues);
-        //db.close();
+//        db.close();
         if(result!=-1)
             Toast.makeText(context, "Thêm thành công!", Toast.LENGTH_SHORT).show();
         else Toast.makeText(context, "Thêm thất bại!", Toast.LENGTH_SHORT).show();

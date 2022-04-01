@@ -30,10 +30,9 @@ public class NewCarFragment extends Fragment {
         View view = inflater.inflate(R.layout.new_car_fragment,container,false);
 
         databaseData = new DatabaseData(inflater.getContext());
-
         lvNewCar = view.findViewById(R.id.lvNewCar);
-//        databaseData.insertCar(new Car(1,"BMW 320i GT 2016","BMW","Trắng",2016,4,R.drawable.bmw_1,+R.drawable.bmw_2,+R.drawable.bmw_3,3359,"Tự dộng","7.2l xăng/100km",280,1350000000));
-//        databaseData.insertCar(new Car(2,"BMW X5 2022","BMW","Trắng",2022,2,R.drawable.x5_1,+R.drawable.x5_2,+R.drawable.x5_3,3359,"Tự dộng","8.1l xăng/100km",320,4479000000.0));
+        databaseData.insertCar(new Car(1,"BMW 320i GT 2016","BMW","Trắng",2016,4,R.drawable.bmw_1,+R.drawable.bmw_2,+R.drawable.bmw_3,3359,"Tự dộng","7.2l xăng/100km",280,1350000000));
+        databaseData.insertCar(new Car(2,"BMW X5 2022","BMW","Trắng",2022,2,R.drawable.x5_1,+R.drawable.x5_2,+R.drawable.x5_3,3359,"Tự dộng","8.1l xăng/100km",320,4479000000.0));
         //db.insert(CarDBHelper.TB_NAME,null,)
         //lstNewCar.add(new Car(1,"BMW 320i GT 2016","BMW","Trắng",2016,4,R.drawable.bmw_1,+R.drawable.bmw_2,+R.drawable.bmw_3,3359,"Tự dộng","7.2l xăng/100km",280,1350000000));
         lstNewCar = databaseData.getAllCar();
