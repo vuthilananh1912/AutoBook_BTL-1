@@ -3,10 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="123dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="52px"
-    android:layout_marginTop="10dp"
-    android:layout_marginLeft="10dp"
-    android:layout_marginRight="10dp">
+    app:cardCornerRadius="44px"
+    app:cardUseCompatPadding="true">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -20,14 +18,16 @@
 
         <TextView
             android:id="@+id/car_name"
-            android:layout_width="wrap_content"
+            android:layout_width="321dp"
             android:layout_height="wrap_content"
             android:text="Mercedes C-200"
             android:textColor="@color/white"
             android:textSize="24dp"
+            android:textStyle="bold"
             android:translationX="20dp"
-            android:translationY="10dp"
-            android:textStyle="bold"></TextView>
+            android:translationY="68dp"
+            android:maxLines="1"
+            android:ellipsize="marquee"></TextView>
 
     </RelativeLayout>
 
