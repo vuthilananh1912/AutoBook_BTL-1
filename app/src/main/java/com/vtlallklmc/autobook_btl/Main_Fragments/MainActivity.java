@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         databaseData.insertCar(new Car(17,"VinFast LUX SA2.0","VinFast","Trắng",2021,3,R.drawable.sa_1,+R.drawable.sa_2,+R.drawable.sa_3,1659,"Tự động","7.1l xăng/100km",280,1170000000.0));
 
         searchBar = findViewById(R.id.search_bar); //ánh xạ
+        searchBar.clearFocus();
         for(Car c:databaseData.getAllCar()){ //vòng lặp duyệt toàn bộ xe
             lstCarResult.add(c.getName()); //thêm từng tên xe vào danh sách để hiển thị lên AutoCompleteTextView
         }

@@ -63,7 +63,7 @@ public class DetailActivity extends AppCompatActivity {
         tvDungTich.setText("Dung tích: "+car.getDungtich());
         tvHopSo.setText("Hộp số: "+car.getHopso());
         tvMucTieuThu.setText("Mức tiêu thụ: "+car.getMuctieuthu());
-        tvVmax.setText("Vận tốc tối đa: "+car.getVmax());
+        tvVmax.setText("Vận tốc tối đa: "+car.getVmax()+" km/h");
 
         img2.setImageResource(car.getImg2());
         img3.setImageResource(car.getImg3());
@@ -71,7 +71,8 @@ public class DetailActivity extends AppCompatActivity {
         btnBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent bookingIntent = new Intent(DetailActivity.this,BookingActivity.class);
+                startActivity(bookingIntent);
             }
         });
     }

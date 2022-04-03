@@ -84,7 +84,7 @@
             <TextView
                 android:id="@+id/tvColor"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
@@ -97,7 +97,7 @@
             <TextView
                 android:id="@+id/tvDungTich"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
@@ -110,7 +110,7 @@
             <TextView
                 android:id="@+id/tvHopSo"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
@@ -123,7 +123,7 @@
             <TextView
                 android:id="@+id/tvMucTieuThu"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="26dp"
                 android:ellipsize="end"
                 android:gravity="center_vertical"
                 android:maxLines="1"
@@ -192,8 +192,8 @@
         android:layout_gravity="bottom"
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
-        android:layout_marginBottom="26dp"
-        android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
         android:text="Đặt lịch mua"
         android:textColor="@color/black"
         android:textSize="22dp"
