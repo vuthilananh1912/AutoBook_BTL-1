@@ -1,4 +1,4 @@
-package com.vtlallklmc.autobook_btl;
+package com.vtlallklmc.autobook_btl.Main_Fragments;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -10,6 +10,11 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.vtlallklmc.autobook_btl.Car;
+import com.vtlallklmc.autobook_btl.CarAdapter;
+import com.vtlallklmc.autobook_btl.DatabaseData;
+import com.vtlallklmc.autobook_btl.R;
 
 import java.util.ArrayList;
 

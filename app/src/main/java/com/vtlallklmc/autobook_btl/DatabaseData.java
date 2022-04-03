@@ -119,7 +119,8 @@ public class DatabaseData {
             lstCar.add(c);
         }
         return lstCar;
-    }public ArrayList<Car> getCarbyBrand(){
+    }
+    public ArrayList<Car> getCarbyBrand(){
         ArrayList<Car> lstCar = new ArrayList<>();
 
         SQLiteDatabase db = carDBHelper.getReadableDatabase();
@@ -142,6 +143,59 @@ public class DatabaseData {
                     cursor.getDouble(13)
             );
             lstCar.add(c);
+        }
+        return lstCar;
+    }
+    public Car searchCar(String query){
+
+        SQLiteDatabase db = carDBHelper.getReadableDatabase();
+//        Cursor cursor = db.rawQuery("SELECT * from "+CarDBHelper.TB_NAME+" WHERE name like '%"+query+"%'",null);
+//        while (cursor.moveToNext()){
+//            Car c = new Car(
+//                    cursor.getInt(0),
+//                    cursor.getString(1),
+//                    cursor.getString(2),
+//                    cursor.getString(3),
+//                    cursor.getInt(4),
+//                    cursor.getInt(5),
+//                    cursor.getInt(6),
+//                    cursor.getInt(7),
+//                    cursor.getInt(8),
+//                    cursor.getInt(9),
+//                    cursor.getString(10),
+//                    cursor.getString(11),
+//                    cursor.getInt(12),
+//                    cursor.getDouble(13)
+//            );
+//        }
+        Cursor cursor = db.query(CarDBHelper.TB_NAME,new String[]{CarDBHelper.PRODUCT_CODE,CarDBHelper.NAME,CarDBHelper.BRAND,CarDBHelper.COLOR,CarDBHelper.NAMSX,CarDBHelper.SL,
+                CarDBHelper.IMG_CODE1,CarDBHelper.IMG_CODE2,CarDBHelper.IMG_CODE3,CarDBHelper.DUNGTICH,CarDBHelper.HOPSO,CarDBHelper.MUCTIEUTHU,CarDBHelper.VMAX,CarDBHelper.GIA},CarDBHelper.NAME+"=?",new String[]{String.valueOf(query)},null,null,null);
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        return new Car(
+                cursor.getInt(0),
+                cursor.getString(1),
+                    cursor.getString(2),
+                    cursor.getString(3),
+                    cursor.getInt(4),
+                    cursor.getInt(5),
+                    cursor.getInt(6),
+                    cursor.getInt(7),
+                    cursor.getInt(8),
+                    cursor.getInt(9),
+                    cursor.getString(10),
+                    cursor.getString(11),
+                    cursor.getInt(12),
+                    cursor.getDouble(13));
+    }
+    public ArrayList<String> getAllCarName(){
+        ArrayList<String> lstCar = new ArrayList<>();
+
+        SQLiteDatabase db = carDBHelper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT "+CarDBHelper.NAME+" FROM "+CarDBHelper.TB_NAME,null);
+        while (cursor.moveToNext()){
+            lstCar.add(cursor.getString(0));
         }
         return lstCar;
     }

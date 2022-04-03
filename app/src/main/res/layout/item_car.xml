@@ -20,14 +20,14 @@
             android:id="@+id/car_name"
             android:layout_width="321dp"
             android:layout_height="wrap_content"
+            android:ellipsize="marquee"
+            android:maxLines="1"
             android:text="Mercedes C-200"
             android:textColor="@color/white"
             android:textSize="24dp"
             android:textStyle="bold"
             android:translationX="20dp"
-            android:translationY="68dp"
-            android:maxLines="1"
-            android:ellipsize="marquee"></TextView>
+            android:translationY="68dp"></TextView>
 
     </RelativeLayout>
 
