@@ -60,7 +60,7 @@ public class DetailActivity extends AppCompatActivity {
         tvDatCoc.setText(datcoc);
 
         tvColor.setText("Màu sắc: "+car.getColor());
-        tvDungTich.setText("Dung tích: "+car.getDungtich());
+        tvDungTich.setText("Dung tích: "+car.getDungtich()+" cc");
         tvHopSo.setText("Hộp số: "+car.getHopso());
         tvMucTieuThu.setText("Mức tiêu thụ: "+car.getMuctieuthu());
         tvVmax.setText("Vận tốc tối đa: "+car.getVmax()+" km/h");
