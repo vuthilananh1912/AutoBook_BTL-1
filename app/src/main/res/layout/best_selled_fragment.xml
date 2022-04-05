@@ -13,16 +13,17 @@
         android:text="Xe bán chạy"
         android:textSize="29dp"
         android:textStyle="bold" />
+
     <ListView
         android:id="@+id/lvBestSelled"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/bottom_nav"
         android:layout_below="@+id/newCar"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="18dp"
-        android:layout_marginBottom="0dp"
-        android:divider="@color/white"
         android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"/>
+        android:layout_marginBottom="0dp"
+        android:divider="@color/white" />
 
 </LinearLayout>

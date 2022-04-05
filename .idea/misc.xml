@@ -6,24 +6,20 @@
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2135" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2135" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable/ic_mazda_svgrepo_com.xml" value="0.3055" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable/ic_round_search_24.xml" value="0.2995" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable/ic_round_vpn_key_24.xml" value="0.2995" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable/round_departure_board_24.xml" value="0.3195" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/drawable/round_loyalty_24.xml" value="0.3" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout-w1240dp/brand_fragment.xml" value="0.22894736842105262" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/activity_booking.xml" value="0.22894736842105262" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/activity_detail.xml" value="0.22671009771986972" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/activity_login.xml" value="0.22894736842105262" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/activity_main.xml" value="0.22894736842105262" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/best_selled_fragment.xml" value="0.22894736842105262" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/brand_fragment.xml" value="0.22894736842105262" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/item_brand.xml" value="0.22894736842105262" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/item_car.xml" value="0.22894736842105262" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/new_car_fragment.xml" value="0.22006578947368421" />
+        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/layout/item_car.xml" value="0.5" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/menu/bottom_menu_nav.xml" value="0.3625" />
-        <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/menu/bottom_nav.xml" value="0.22894736842105262" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2135" />
         <entry key="..\:/ANDROID_PROJECT/AutoBook_BTL/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2135" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/activity_register.xml" value="0.20416666666666666" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/best_selled_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/brand_fragment.xml" value="0.20416666666666666" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/item_brand.xml" value="0.20416666666666666" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/item_car.xml" value="0.20416666666666666" />
+        <entry key="..\:/AutoBook_BTL/app/src/main/res/layout/new_car_fragment.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
