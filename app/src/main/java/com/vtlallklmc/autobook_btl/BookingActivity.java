@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.vtlallklmc.autobook_btl.Main_Fragments.MainActivity;
 
 import java.text.SimpleDateFormat;
@@ -27,7 +29,7 @@ import java.util.Calendar;
 
 public class BookingActivity extends AppCompatActivity {
     Button btnDate,btnTime, btnSave, btnCancel;
-    String getDate, getTime;
+    String getDate, getTime, message;
     TextView tvDate, tvTime;
     long rawDate;
 
@@ -60,6 +62,7 @@ public class BookingActivity extends AppCompatActivity {
                 timePicker();
             }
         });
+
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,7 +80,7 @@ public class BookingActivity extends AppCompatActivity {
                     AlertDialog.Builder confirm = new AlertDialog.Builder(BookingActivity.this);
                     confirm.setTitle("Xác nhận đặt lịch");
                     confirm.setIcon(R.drawable.round_loyalty_24);
-                    String message = "Xe ô tô "+nameCar+"\nNgày: "+getDate+"\nThời gian: "+getTime+"\nĐịa điểm: Showroom FITHOU - 96 Định Công, Thanh Xuân, Hà Nội.";
+                    message = "Xe ô tô "+nameCar+"\nNgày: "+getDate+"\nThời gian: "+getTime+"\nĐịa điểm: Showroom FITHOU - 96 Định Công, Thanh Xuân, Hà Nội.";
                     confirm.setMessage("Xác nhận đặt lịch mua xe:\n"+message);
                     confirm.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                         @Override
@@ -94,7 +97,17 @@ public class BookingActivity extends AppCompatActivity {
                     });
                     confirm.show();
                 }
+                Intent pushIntent = new Intent(Intent.ACTION_INSERT);
 
+                pushIntent.setData(CalendarContract.CONTENT_URI);
+
+                pushIntent.putExtra(CalendarContract.Events.TITLE, "Sự kiện mua xe "+nameCar+" ("+getDate+" - "+getTime+")");
+                pushIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, "96 Định Công, Thanh Xuân, Hà Nội");
+                pushIntent.putExtra(CalendarContract.Events.DESCRIPTION, message);
+//                pushIntent.putExtra(CalendarContract.Events.ALL_DAY, true);
+//                pushIntent.putExtra(Intent.EXTRA_EMAIL, "20a10010156@students.hou.edu.vn");
+
+                startActivity(pushIntent);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
