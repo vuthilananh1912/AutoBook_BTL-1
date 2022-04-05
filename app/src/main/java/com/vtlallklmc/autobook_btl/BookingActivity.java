@@ -82,35 +82,7 @@ public class BookingActivity extends AppCompatActivity {
                     confirm.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent addEventIntent = new Intent(Intent.ACTION_INSERT);
 
-                            addEventIntent.setData(CalendarContract.CONTENT_URI);
-
-                            addEventIntent.putExtra(CalendarContract.Events.TITLE,"Sự kiện mua xe "+nameCar.toString());
-                            addEventIntent.putExtra(CalendarContract.Events.DESCRIPTION, message.toString());
-                            addEventIntent.putExtra(CalendarContract.Events.EVENT_LOCATION,"96 Định Công, Thanh Xuân, Hà Nội");
-//                            addEventIntent.putExtra(CalendarContract.Events.DTSTART, rawDate);
-//                            addEventIntent.putExtra(CalendarContract.Events.DTEND, rawDate+60*60*1000);
-//                            addEventIntent.putExtra(CalendarContract.Events.ALL_DAY,true);
-//                            addEventIntent.putExtra(Intent.EXTRA_EMAIL,"20a10010156@students.hou.edu.vn");
-
-                            startActivity(addEventIntent);
-//                            if(addEventIntent.resolveActivity(getPackageManager())!=null){
-//                                startActivity(addEventIntent);
-//                            }else{
-//                                Toast.makeText(BookingActivity.this, "Không thể tạo sự kiện trong ứng dụng lịch của bạn", Toast.LENGTH_SHORT).show();
-//                            }
-//                            ContentResolver cr = getContentResolver();
-//                            ContentValues cv = new ContentValues();
-//                            cv.put(CalendarContract.Events.TITLE,"Sự kiện mua xe "+nameCar);
-//                            cv.put(CalendarContract.Events.DESCRIPTION, message);
-//                            cv.put(CalendarContract.Events.EVENT_LOCATION,"96 Định Công, Thanh Xuân, Hà Nội");
-////                            cv.put(CalendarContract.Events.DTSTART, rawDate);
-////                            cv.put(CalendarContract.Events.DTEND, rawDate+60*60*1000);
-////                            cv.put(CalendarContract.Events.CALENDAR_ID, "1");
-////                            cv.put(CalendarContract.Events.EVENT_TIMEZONE, String.valueOf(Calendar.getInstance().getTimeZone()));
-//
-//                            Uri uri = cr.insert(CalendarContract.Events.CONTENT_URI,cv);
                         }
                     });
                     confirm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
