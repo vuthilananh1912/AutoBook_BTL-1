@@ -25,7 +25,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnBook"
+        android:layout_above="@+id/footer"
         android:layout_below="@+id/tvName"
         android:layout_marginBottom="10dp"
         tools:ignore="SpeakableTextPresentCheck">
@@ -184,8 +184,8 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btnBook"
+    <LinearLayout
+        android:id="@+id/footer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -193,10 +193,29 @@
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
         android:layout_marginBottom="10dp"
-        android:padding="10dp"
-        android:text="Đặt lịch mua"
-        android:textColor="@color/black"
-        android:textSize="22dp"
-        android:textStyle="bold" />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginRight="26dp"
+            android:layout_weight="9"
+            android:backgroundTint="@color/white"
+            android:text="◀"
+            android:textColor="@color/black"
+            android:textSize="26dp" />
+
+        <Button
+            android:id="@+id/btnBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:padding="14dp"
+            android:text="Đặt lịch mua"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 </RelativeLayout>

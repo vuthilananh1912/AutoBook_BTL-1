@@ -13,9 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.vtlallklmc.autobook_btl.Car;
-import com.vtlallklmc.autobook_btl.CarAdapter;
-import com.vtlallklmc.autobook_btl.DatabaseData;
+import com.vtlallklmc.autobook_btl.Car.Car;
+import com.vtlallklmc.autobook_btl.Car.CarAdapter;
+import com.vtlallklmc.autobook_btl.Car.DatabaseData;
 import com.vtlallklmc.autobook_btl.DetailActivity;
 import com.vtlallklmc.autobook_btl.R;
 

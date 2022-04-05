@@ -1,4 +1,4 @@
-package com.vtlallklmc.autobook_btl;
+package com.vtlallklmc.autobook_btl.Car;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.vtlallklmc.autobook_btl.R;
 
 import java.util.ArrayList;
 

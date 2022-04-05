@@ -74,6 +74,26 @@
                 android:layout_height="wrap_content"
                 android:text=" * Thời hạn đặt cọc tối đa là: 15 (mười lăm) ngày, kể từ ngày ký  hợp đồng đặt cọc này.\n * Hết thời gian trên, nếu không thực hiện việc đặt cọc thì giao dịch này không có giá trị thực hiện theo qui định của pháp luật.\n * Quý khách có quyền sở hữu số tiền đặt cọc nếu cửa hàng từ chối giao kết hoặc quá thời hạn đặt lịch mà sản phẩm chưa có sẵn."
                 android:layout_marginTop="26dp"/>
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:layout_marginBottom="10dp"
+                android:text="Ngày mua: Chưa đặt"
+                android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Giờ mua: Chưa đặt"
+                android:textSize="22dp"
+                android:textStyle="bold" />
             />
         </LinearLayout>
     </ScrollView>
@@ -116,18 +136,6 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnSave"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="26dp"
-            android:layout_weight="1"
-            android:padding="14dp"
-            android:text="Hoàn tất đặt lịch"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <Button
             android:id="@+id/btnCancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -138,8 +146,22 @@
             android:padding="10dp"
             android:text="Hủy"
             android:textColor="@color/black"
-            android:textSize="16dp"/>
-" />
+            android:textSize="16dp" />
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="26dp"
+            android:layout_weight="1"
+            android:padding="14dp"
+            android:text="Hoàn tất đặt lịch"
+            android:textColor="@color/black"
+            android:textSize="18dp"
+            android:textStyle="bold" /><![CDATA[
+
+        " />
+    ]]>
     </LinearLayout>
 
 </RelativeLayout>

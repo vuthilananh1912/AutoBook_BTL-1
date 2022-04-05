@@ -8,18 +8,19 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.vtlallklmc.autobook_btl.Car.Car;
+import com.vtlallklmc.autobook_btl.Car.DatabaseData;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Currency;
 import java.util.Locale;
 
 public class DetailActivity extends AppCompatActivity {
     DatabaseData databaseData;
     TextView tvName,tvGia,tvDatCoc,tvColor,tvDungTich,tvHopSo,tvMucTieuThu,tvVmax;
     ImageView img1, img2, img3;
-    Button btnBook;
+    Button btnBook,btnBack;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +43,14 @@ public class DetailActivity extends AppCompatActivity {
         img2 = findViewById(R.id.img2);
         img3 = findViewById(R.id.img3);
         btnBook = findViewById(R.id.btnBook);
-
+        btnBack = findViewById(R.id.btnBack);
 
         databaseData = new DatabaseData(this);
         Car car = databaseData.searchCar(mess);
+
+        id = car.getProduct_code();
+
+        //truyền tên xe sang Booking Activity để hiện dialog xác nhận đặt xe
         tvName.setText(car.getName());
 
         img1.setImageResource(car.getImg1());
@@ -72,7 +77,14 @@ public class DetailActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent bookingIntent = new Intent(DetailActivity.this,BookingActivity.class);
+                bookingIntent.putExtra("name",car.getName());
                 startActivity(bookingIntent);
+            }
+        });
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
