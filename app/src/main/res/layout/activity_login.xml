@@ -1,47 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LoginActivity">
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/user"
+
+    <ImageView
+        android:id="@+id/imgLG"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:src="@mipmap/loginbackground" />
+    <EditText
+        android:id="@+id/edtsdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        app:startIconDrawable="@drawable/ic_round_person_24">
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_below="@id/imgLG"
+        android:layout_marginTop="25dp"
+        android:ems="10"
+        android:hint="Số điện thoại"
+        android:minHeight="48dp" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Tên đăng nhập"
-            android:textSize="18dp"
-            android:inputType="textEmailAddress"/>
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
+    <EditText
+        android:id="@+id/edtPass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="222dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
-        app:endIconMode="password_toggle"
-        app:startIconDrawable="@drawable/ic_round_vpn_key_24"
-        >
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:inputType="textPassword"
+        android:layout_below="@id/edtsdt"
+        android:layout_marginTop="20dp"
+        android:minHeight="48dp"
+        android:ems="20"
+        android:hint="Mật khẩu"/>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Mật khẩu"
-            android:textSize="18dp"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
+    <CheckBox
+        android:id="@+id/cBLuuMK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edtPass"
+        android:layout_gravity="left"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="25dp"
+        android:onClick="savePass"
+        android:text="Nhớ mật khẩu"
+        android:textSize="15dp" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/btnDN"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cBLuuMK"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#D3A51D"
+        android:onClick="checkLogin"
+        android:text="Đăng nhập" />
+
+    <TextView
+        android:id="@+id/txtViewDK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnDN"
+        android:layout_gravity="left"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="42dp"
+        android:minHeight="48dp"
+        android:onClick="register"
+        android:text="Đăng ký?"
+        android:textColor="#000"
+        android:textSize="15dp" />
+
+    <TextView
+        android:id="@+id/txtViewQuenMK"
+        android:layout_width="123dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnDN"
+        android:layout_gravity="right"
+        android:layout_marginLeft="178dp"
+        android:layout_marginTop="43dp"
+        android:layout_marginRight="25dp"
+        android:layout_toRightOf="@id/txtViewDK"
+        android:text="Quên mật khẩu?"
+        android:textColor="#000"
+        android:textSize="15dp" />
+
+</RelativeLayout>
