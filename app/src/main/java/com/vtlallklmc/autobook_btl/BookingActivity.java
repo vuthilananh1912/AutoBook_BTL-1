@@ -63,17 +63,19 @@ public class BookingActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getDate==null || getTime==null){
-                    AlertDialog.Builder require = new AlertDialog.Builder(BookingActivity.this);
-                    require.setMessage("Vui lòng chọn lại ngày giờ đặt mua!");
-                    require.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            //nothing
-                        }
-                    });
-                    require.show();
-                }else{
+                if(getDate==null || getTime==null)
+                    {
+                        AlertDialog.Builder require = new AlertDialog.Builder(BookingActivity.this);
+                        require.setMessage("Vui lòng chọn lại ngày giờ đặt mua!");
+                        require.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                //nothing
+                            }
+                        });
+                        require.show();
+                    }
+                    else{
                     AlertDialog.Builder confirm = new AlertDialog.Builder(BookingActivity.this);
                     confirm.setTitle("Xác nhận đặt lịch");
                     confirm.setIcon(R.drawable.round_loyalty_24);
