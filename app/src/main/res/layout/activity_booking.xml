@@ -75,7 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
-                android:text=" * Thời hạn đặt cọc tối đa là: 15 (mười lăm) ngày, kể từ ngày ký  hợp đồng đặt cọc này.\n * Hết thời gian trên, nếu không thực hiện việc đặt cọc thì giao dịch này không có giá trị thực hiện theo qui định của pháp luật.\n * Quý khách có quyền sở hữu số tiền đặt cọc nếu cửa hàng từ chối giao kết hoặc quá thời hạn đặt lịch mà sản phẩm chưa có sẵn." />
+                android:text=" * Thời hạn đặt cọc tối đa là: 15 (mười lăm) ngày, kể từ ngày ký hợp đồng đặt cọc này.\n * Hết thời gian trên, nếu không thực hiện việc đặt cọc thì giao dịch này không có giá trị thực hiện.\n * Quý khách có quyền được hoàn trả số tiền đặt cọc nếu cửa hàng từ chối hợp đồng hoặc quá thời hạn đặt lịch mà sản phẩm chưa có sẵn.\n
+* Nếu khách hàng đã đặt cọc nhưng có thay đổi quyết định sau này, quý khách sẽ không được hoàn trả số tiền đặt cọc" />
 
             <TextView
                 android:id="@+id/tvDate"
@@ -100,7 +101,7 @@
     </ScrollView>
 
     <Button
-        android:id="@+id/btnTime"
+        android:id="@+id/btnDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -109,22 +110,7 @@
         android:layout_marginRight="26dp"
         android:layout_marginBottom="86dp"
         android:padding="14dp"
-        android:text="Đặt giờ mua"
-        android:textColor="@color/black"
-        android:textSize="18dp"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom"
-        android:layout_marginLeft="26dp"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="159dp"
-        android:padding="14dp"
-        android:text="Đặt ngày mua"
+        android:text="Đặt ngày / giờ mua"
         android:textColor="@color/black"
         android:textSize="18dp"
         android:textStyle="bold" />

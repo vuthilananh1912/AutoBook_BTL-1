@@ -13,6 +13,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CalendarContract;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
@@ -28,10 +29,12 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class BookingActivity extends AppCompatActivity {
-    Button btnDate,btnTime, btnSave, btnCancel;
+    Button btnDate, btnSave, btnCancel;
     String getDate, getTime, message;
     TextView tvDate, tvTime;
     long rawDate;
+    Calendar datetime;
+    Calendar currentDateTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +43,6 @@ public class BookingActivity extends AppCompatActivity {
 
         //ánh xạ
         btnDate = findViewById(R.id.btnDate);
-        btnTime = findViewById(R.id.btnTime);
         btnSave = findViewById(R.id.btnSave);
         btnCancel = findViewById(R.id.btnCancel);
         tvDate = findViewById(R.id.tvDate);
@@ -49,26 +51,21 @@ public class BookingActivity extends AppCompatActivity {
         //nhận name của intent Detail Activity
         Intent receiveIntent = getIntent();
         String nameCar = receiveIntent.getStringExtra("name");
+        //
 
         btnDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                datePicker();
-            }
-        });
-        btnTime.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                timePicker();
+                dateTimePicker();
             }
         });
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getDate==null || getTime == null){
+                if(getDate==null || getTime==null){
                     AlertDialog.Builder require = new AlertDialog.Builder(BookingActivity.this);
-                    require.setMessage("Vui lòng chọn ngày giờ đặt mua!");
+                    require.setMessage("Vui lòng chọn lại ngày giờ đặt mua!");
                     require.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
@@ -92,12 +89,15 @@ public class BookingActivity extends AppCompatActivity {
                             pushIntent.putExtra(CalendarContract.Events.TITLE, "Sự kiện mua xe "+nameCar+" ("+getDate+" - "+getTime+")");
                             pushIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, "96 Định Công, Thanh Xuân, Hà Nội");
                             pushIntent.putExtra(CalendarContract.Events.DESCRIPTION, message);
-                            pushIntent.putExtra(CalendarContract.Events.ALL_DAY, true);
-                            pushIntent.putExtra(CalendarContract.Events.DTSTART,rawDate);
-                            pushIntent.putExtra(CalendarContract.Events.DTEND,rawDate+60*60*1000);
+//                            pushIntent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                            pushIntent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME,rawDate);
+                            pushIntent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME,rawDate+120*60*1000);
 //                            pushIntent.putExtra(Intent.EXTRA_EMAIL, "20a10010156@students.hou.edu.vn");
+                            pushIntent.putExtra(CalendarContract.Events.CALENDAR_ID, 1);
+                            pushIntent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, Calendar.getInstance().getTimeZone().getID());
 
                             startActivity(pushIntent);
+                            Toast.makeText(BookingActivity.this, "Ấn nút 'Lưu' ở góc trên bên phải để lưu sự kiện trọng đại này nhé!", Toast.LENGTH_LONG).show();
                         }
                     });
                     confirm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -155,5 +155,31 @@ public class BookingActivity extends AppCompatActivity {
             }
         },hour,minute,true);
         timePickerDialog.show();
+    }
+    public void dateTimePicker(){
+        currentDateTime = Calendar.getInstance();
+        datetime = Calendar.getInstance();
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(BookingActivity.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int year, int monthOfYear, int dayOfMonth) {
+                datetime.set(year,monthOfYear,dayOfMonth);
+                TimePickerDialog timePickerDialog = new TimePickerDialog(BookingActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker timePicker, int hourOfDay, int minute) {
+                        datetime.set(Calendar.HOUR_OF_DAY,hourOfDay);
+                        datetime.set(Calendar.MINUTE,minute);
+                        rawDate = datetime.getTimeInMillis();
+
+                        getDate = new SimpleDateFormat("dd/MM/yyyy").format(datetime.getTime());
+                        tvDate.setText("Ngày mua: "+getDate);
+                        getTime = new SimpleDateFormat("HH:mm").format(datetime.getTime());
+                        tvTime.setText("Giờ mua: "+getTime);
+                    }
+                },currentDateTime.get(Calendar.HOUR_OF_DAY),currentDateTime.get(Calendar.MINUTE),true);
+                timePickerDialog.show();
+            }
+        },currentDateTime.get(Calendar.YEAR),currentDateTime.get(Calendar.MONTH),currentDateTime.get(Calendar.DATE));
+        datePickerDialog.show();
     }
 }
