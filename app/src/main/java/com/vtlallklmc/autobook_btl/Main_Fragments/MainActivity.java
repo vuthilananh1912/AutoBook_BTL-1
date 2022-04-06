@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.brandItem:
                         viewPager.setCurrentItem(2);
                         break;
+                    case R.id.personal:
+                        viewPager.setCurrentItem(3);
+                        break;
                 }
                 return true;
         });
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
         databaseData.insertCar(new Car(17,"VinFast LUX SA2.0","VinFast","Trắng",2021,3,R.drawable.sa_1,+R.drawable.sa_2,+R.drawable.sa_3,1659,"Tự động","7.1l xăng/100km",280,1170000000.0));
 
         searchBar = findViewById(R.id.search_bar); //ánh xạ
+        searchBar.setText("");
 
         for(Car c:databaseData.getAllCar()){ //vòng lặp duyệt toàn bộ xe
             lstCarResult.add(c.getName()); //thêm từng tên xe vào danh sách để hiển thị lên AutoCompleteTextView
@@ -107,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentSend = new Intent(MainActivity.this, DetailActivity.class);
                 intentSend.putExtra("keyword",keyword);
                 startActivity(intentSend);
+                searchBar.setText("");
+                searchBar.clearFocus();
             }
         });
         btnSearch = findViewById(R.id.btnSearch);
@@ -116,6 +122,8 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentSend = new Intent(MainActivity.this,DetailActivity.class);
                 intentSend.putExtra("keyword",keyword);
                 startActivity(intentSend);
+                searchBar.setText("");
+                searchBar.clearFocus();
             }
         });
     }
@@ -140,6 +148,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case 2:
                         navigationView.getMenu().findItem(R.id.brandItem).setChecked(true);
+                        break;
+                    case 3:
+                        navigationView.getMenu().findItem(R.id.personal).setChecked(true);
                         break;
                 }
             }

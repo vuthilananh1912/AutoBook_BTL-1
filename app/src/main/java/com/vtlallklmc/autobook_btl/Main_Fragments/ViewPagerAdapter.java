@@ -17,13 +17,13 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
             case 0: return new NewCarFragment();
             case 1: return new BestSelledFragment();
             case 2: return new BrandFragment();
-//            case 3: return new PersonalFragment()
+            case 3: return new PersonalFragment();
             default: return new NewCarFragment();
         }
     }
 
     @Override
     public int getCount() {
-        return 3;
+        return 4;
     }
 }
