@@ -2,14 +2,15 @@ package com.vtlallklmc.autobook_btl.Car;
 
 import android.net.Uri;
 
-public class Car {
-    private int product_code;
-    private String name, brand, color;
-    private int namsx, sl, img1, img2, img3, dungtich;
-    private String hopso, muctieuthu;
-    private int vmax;
+public class Car {  //Object Car để chứa các thuộc tính
+    private int product_code; //mã xe
+    private String name, brand, color; //tên, hãng, màu
+    private int namsx, sl, img1, img2, img3, dungtich; //năm sx, số lượng, id ảnh 1, 2, 3
+    private String hopso, muctieuthu; //hộp số, mức tiêu thu
+    private int vmax; // vận tốc tối đa
     private double gia;
 
+    //hàm khởi tạo có tham số
     public Car(int product_code, String name, String brand, String color, int namsx, int sl, int img1, int img2, int img3, int dungtich, String hopso, String muctieuthu, int vmax, double gia) {
         this.product_code = product_code;
         this.name = name;
@@ -27,6 +28,8 @@ public class Car {
         this.gia = gia;
     }
 
+
+    //getter and setter
     public int getProduct_code() {
         return product_code;
     }
