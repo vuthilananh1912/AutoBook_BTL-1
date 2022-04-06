@@ -85,7 +85,19 @@ public class BookingActivity extends AppCompatActivity {
                     confirm.setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            Intent pushIntent = new Intent(Intent.ACTION_INSERT);
 
+                            pushIntent.setData(CalendarContract.Events.CONTENT_URI);
+
+                            pushIntent.putExtra(CalendarContract.Events.TITLE, "Sự kiện mua xe "+nameCar+" ("+getDate+" - "+getTime+")");
+                            pushIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, "96 Định Công, Thanh Xuân, Hà Nội");
+                            pushIntent.putExtra(CalendarContract.Events.DESCRIPTION, message);
+                            pushIntent.putExtra(CalendarContract.Events.ALL_DAY, true);
+                            pushIntent.putExtra(CalendarContract.Events.DTSTART,rawDate);
+                            pushIntent.putExtra(CalendarContract.Events.DTEND,rawDate+60*60*1000);
+//                            pushIntent.putExtra(Intent.EXTRA_EMAIL, "20a10010156@students.hou.edu.vn");
+
+                            startActivity(pushIntent);
                         }
                     });
                     confirm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -97,17 +109,7 @@ public class BookingActivity extends AppCompatActivity {
                     });
                     confirm.show();
                 }
-                Intent pushIntent = new Intent(Intent.ACTION_INSERT);
 
-                pushIntent.setData(CalendarContract.CONTENT_URI);
-
-                pushIntent.putExtra(CalendarContract.Events.TITLE, "Sự kiện mua xe "+nameCar+" ("+getDate+" - "+getTime+")");
-                pushIntent.putExtra(CalendarContract.Events.EVENT_LOCATION, "96 Định Công, Thanh Xuân, Hà Nội");
-                pushIntent.putExtra(CalendarContract.Events.DESCRIPTION, message);
-//                pushIntent.putExtra(CalendarContract.Events.ALL_DAY, true);
-//                pushIntent.putExtra(Intent.EXTRA_EMAIL, "20a10010156@students.hou.edu.vn");
-
-                startActivity(pushIntent);
             }
         });
         btnCancel.setOnClickListener(new View.OnClickListener() {
