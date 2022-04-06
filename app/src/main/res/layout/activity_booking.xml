@@ -67,7 +67,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ: 96 phố Định Công, quận Thanh Xuân, Hà Nội\nSDT: 0123456789"
+                android:text="Địa chỉ: 96 Định Công, Thanh Xuân, Hà Nội\nSDT: 0123456789"
                 android:textSize="16dp" />
 
             <TextView

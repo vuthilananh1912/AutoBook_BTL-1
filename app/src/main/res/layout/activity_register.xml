@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Register">
+    tools:context=".Register"
+    android:background="@drawable/signup_background">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,8 +20,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="Đăng Ký"
-            android:textColor="#B18914"
-            android:textSize="45dp" />
+            android:textColor="@color/black"
+            android:textSize="45dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/edtName"
@@ -31,7 +33,8 @@
             android:layout_marginRight="25dp"
             android:ems="10"
             android:hint="Họ và tên"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/edtNameDN"
@@ -42,7 +45,8 @@
             android:layout_marginRight="25dp"
             android:ems="10"
             android:hint="Tên đăng nhập"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:inputType="text"/>
 
 
         <EditText
@@ -54,7 +58,8 @@
             android:layout_marginRight="25dp"
             android:ems="10"
             android:hint="Số điện thoại"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:inputType="phone"/>
 
         <EditText
             android:id="@+id/edtPassDK"
@@ -84,9 +89,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:backgroundTint="#D3A51D"
+            android:backgroundTint="@color/teal_200"
             android:onClick="checkRegistration"
-            android:text="Đăng ký" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="Đăng ký"
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/txtViewDNTKKhac"
@@ -94,7 +102,7 @@
             android:layout_height="match_parent"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:hint="Bạn có một tài khoản khác?  Đăng nhập"
+            android:hint="Bạn có một tài khoản khác?  Đăng nhập ngay"
             android:onClick="quayveDN"
             android:textSize="15dp"
             tools:ignore="TouchTargetSizeCheck" />

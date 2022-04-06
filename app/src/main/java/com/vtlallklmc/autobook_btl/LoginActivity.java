@@ -66,12 +66,12 @@ public class LoginActivity extends AppCompatActivity {
         strP = edtPass.getText().toString();
         if (strU.isEmpty() || strP.isEmpty())
         {
-            Toast.makeText(getApplicationContext(), "U, P khong duoc de trong",
+            Toast.makeText(getApplicationContext(), "Số điện thoại và Mật khẩu không được để trống",
                     Toast.LENGTH_LONG).show();
         }else {
             if (checkLogin(strU, strP)>0)
             {
-                Toast.makeText(getApplicationContext(), "Login thanh cong",
+                Toast.makeText(getApplicationContext(), "Đăng nhập thành công",
                         Toast.LENGTH_LONG).show();
                 new Handler().postDelayed(new Runnable() {
                     @Override

@@ -53,7 +53,7 @@ public class Register extends AppCompatActivity {
         if (N.equals("admin") && NDN.equals("admin") && SdtDK.equals("admin") && PassDK.equals("admin")) {
             return 1;
         } else {
-            return 01;
+            return 0; //trước kia code của LAnk là 01: không biết có nhầm k :v
         }
     }
 
@@ -66,11 +66,11 @@ public class Register extends AppCompatActivity {
         strPassDK = edtPassDK.getText().toString();
 
         if ( strN.isEmpty() || strNDN.isEmpty() || strSdtDK.isEmpty() || strPassDK.isEmpty()) {
-            Toast.makeText(getApplicationContext(), "khong duoc de trong thong tin",
+            Toast.makeText(getApplicationContext(), "Không được để trống thông tin",
                     Toast.LENGTH_LONG).show();
         } else if (checkRegistration(strN, strNDN, strSdtDK, strPassDK )>0)
         {
-            Toast.makeText(getApplicationContext(), "Registration thanh cong",
+            Toast.makeText(getApplicationContext(), "Đăng ký thành công",
                     Toast.LENGTH_LONG).show();
             new Handler().postDelayed(new Runnable() {
                 @Override

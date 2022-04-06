@@ -199,10 +199,11 @@
             android:id="@+id/btnBack"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginRight="26dp"
+            android:layout_marginRight="18dp"
             android:layout_weight="9"
             android:backgroundTint="@color/white"
             android:text="◀"
+            android:gravity="center_horizontal"
             android:textColor="@color/black"
             android:textSize="26dp" />
 
