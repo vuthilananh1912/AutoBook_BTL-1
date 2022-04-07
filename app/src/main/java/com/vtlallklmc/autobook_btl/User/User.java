@@ -3,31 +3,22 @@ package com.vtlallklmc.autobook_btl.User;
 import java.util.Calendar;
 
 public class User {
-    private String name, username, phone, password, carname, bookingDate;
+    private String fullname, phone, password, carname, bookingDate;
 
-    public User(String name, String username, String phone, String password, String carname, String bookingDate) {
-        this.name = name;
-        this.username = username;
+    public User(String name, String phone, String password, String carname, String bookingDate) {
+        this.fullname = name;
         this.phone = phone;
         this.password = password;
         this.carname = carname;
         this.bookingDate = bookingDate;
     }
 
-    public String getName() {
-        return name;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
+    public void setFullname(String name) {
+        this.fullname = name;
     }
 
     public String getPhone() {
