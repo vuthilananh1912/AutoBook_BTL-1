@@ -40,6 +40,21 @@ public class CarDBHelper extends SQLiteOpenHelper { //Lớp này để khởi t�
             + VMAX + " INTEGER, "
             + GIA + " REAL); ";
 
+    //bảng User
+    public static String USER_TB_NAME = "tblUser";
+    //thuộc tính
+    public static String FULLNAME="fullname", USERNAME="username", PHONE="phone", PASSWORD="password", CARNAME="carname", BOOKINGDATE="booking_date";
+
+    //tạo bảng User
+    String sql1 = "CREATE TABLE "+USER_TB_NAME+" ("
+            + PHONE + " TEXT PRIMARY KEY, "
+            + FULLNAME + " TEXT, "
+            + USERNAME + " TEXT, "
+            + PASSWORD + " TEXT, "
+            + NAMSX + " INTEGER, "
+            + CARNAME + " TEXT, "
+            + BOOKINGDATE + " TEXT); ";
+
     //khởi tạo
     public CarDBHelper(@Nullable Context context) {
         super(context, DB_NAME, null, DB_VER);
@@ -50,6 +65,7 @@ public class CarDBHelper extends SQLiteOpenHelper { //Lớp này để khởi t�
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(sql);
+        sqLiteDatabase.execSQL(sql1);
     }
 
     //phương thức update bảng
@@ -57,6 +73,8 @@ public class CarDBHelper extends SQLiteOpenHelper { //Lớp này để khởi t�
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         String sql = "DROP TABLE IF EXISTS " + TB_NAME;
         sqLiteDatabase.execSQL(sql);
+        String sql1 = "DROP TABLE IF EXISTS " + USER_TB_NAME;
+        sqLiteDatabase.execSQL(sql1);
         onCreate(sqLiteDatabase);
     }
 }

@@ -36,17 +36,17 @@
             android:minHeight="48dp"
             android:inputType="text"/>
 
-        <EditText
-            android:id="@+id/edtNameDN"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginRight="25dp"
-            android:ems="10"
-            android:hint="Tên đăng nhập"
-            android:minHeight="48dp"
-            android:inputType="text"/>
+<!--        <EditText-->
+<!--            android:id="@+id/edtNameDN"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="25dp"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:layout_marginRight="25dp"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Tên đăng nhập"-->
+<!--            android:minHeight="48dp"-->
+<!--            android:inputType="text"/>-->
 
 
         <EditText
@@ -70,6 +70,18 @@
             android:layout_marginRight="25dp"
             android:ems="20"
             android:hint="Mật khẩu"
+            android:inputType="textPassword"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/edtPassDK2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:ems="20"
+            android:hint="Nhập lại mật khẩu"
             android:inputType="textPassword"
             android:minHeight="48dp" />
 

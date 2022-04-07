@@ -28,7 +28,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         edtName = (EditText) findViewById(R.id.edtName);
-        edtNameDN = (EditText) findViewById(R.id.edtNameDN);
+//        edtNameDN = (EditText) findViewById(R.id.edtNameDN);
         edtSdtDK = (EditText) findViewById(R.id.edtSdtDK);
         edtPassDK = (EditText) findViewById(R.id.edtPassDK);
         cBLuuMKDK = (CheckBox) findViewById(R.id.cBLuuMKDK);
