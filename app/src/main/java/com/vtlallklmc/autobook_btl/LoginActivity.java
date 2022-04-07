@@ -14,6 +14,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vtlallklmc.autobook_btl.Main_Fragments.MainActivity;
+import com.vtlallklmc.autobook_btl.User.User;
+import com.vtlallklmc.autobook_btl.User.UserDatabaseData;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +23,9 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox cBLuuMK;
     Button btnDN;
     TextView txtViewDK, txtViewQuenMK;
+
+    UserDatabaseData userDatabaseData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         btnDN = (Button) findViewById(R.id.btnDN);
         txtViewDK = (TextView) findViewById(R.id.txtViewDK);
         txtViewQuenMK = (TextView) findViewById(R.id.txtViewQuenMK);
+
+        userDatabaseData = new UserDatabaseData(LoginActivity.this);
+
+        //đang lỗi
+        userDatabaseData.addUser(new User("Lê Mạnh Cường","0372843798","cuong1806","GLC 300","18/06/2022"));
+
     }
 
     public void rememberPass(String userName, String Pass, boolean status)

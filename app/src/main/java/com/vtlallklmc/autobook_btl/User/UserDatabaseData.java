@@ -35,5 +35,14 @@ public class UserDatabaseData {
         SQLiteDatabase db = carDBHelper.getReadableDatabase();
         Cursor cursor = db.query(CarDBHelper.USER_TB_NAME,new String[]{CarDBHelper.PHONE,CarDBHelper.FULLNAME,
                 CarDBHelper.PASSWORD,CarDBHelper.CARNAME,CarDBHelper.BOOKINGDATE},CarDBHelper.PHONE+"=?",new String[]{String.valueOf(query)},null,null,null);
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        return new User(
+                cursor.getString(1),
+                cursor.getString(0),
+                cursor.getString(2),
+                cursor.getString(3),
+                cursor.getString(4));
     }
 }
