@@ -43,15 +43,13 @@ public class CarDBHelper extends SQLiteOpenHelper { //Lớp này để khởi t�
     //bảng User
     public static String USER_TB_NAME = "tblUser";
     //thuộc tính
-    public static String FULLNAME="fullname", USERNAME="username", PHONE="phone", PASSWORD="password", CARNAME="carname", BOOKINGDATE="booking_date";
+    public static String FULLNAME="fullname", PHONE="phone", PASSWORD="password", CARNAME="carname", BOOKINGDATE="booking_date";
 
     //tạo bảng User
     String sql1 = "CREATE TABLE "+USER_TB_NAME+" ("
             + PHONE + " TEXT PRIMARY KEY, "
             + FULLNAME + " TEXT, "
-            + USERNAME + " TEXT, "
             + PASSWORD + " TEXT, "
-            + NAMSX + " INTEGER, "
             + CARNAME + " TEXT, "
             + BOOKINGDATE + " TEXT); ";
 

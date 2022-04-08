@@ -90,7 +90,7 @@ public class Register extends AppCompatActivity {
     }
 
     public void quayveDN(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         finish();
 

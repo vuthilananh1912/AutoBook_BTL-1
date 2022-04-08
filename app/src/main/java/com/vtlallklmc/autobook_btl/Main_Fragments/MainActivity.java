@@ -116,16 +116,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         btnSearch = findViewById(R.id.btnSearch);
-        btnSearch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intentSend = new Intent(MainActivity.this,DetailActivity.class);
-                intentSend.putExtra("keyword",keyword);
-                startActivity(intentSend);
-                searchBar.setText("");
-                searchBar.clearFocus();
-            }
-        });
+        if(searchBar.getText().equals("")==true){
+            btnSearch.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intentSend = new Intent(MainActivity.this,DetailActivity.class);
+                    intentSend.putExtra("keyword",keyword);
+                    startActivity(intentSend);
+                    searchBar.setText("");
+                    searchBar.clearFocus();
+                }
+            });
+        }
     }
     private void setUpViewPager(){
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
