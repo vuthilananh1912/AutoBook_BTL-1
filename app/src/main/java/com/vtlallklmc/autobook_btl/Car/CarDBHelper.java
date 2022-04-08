@@ -21,7 +21,7 @@ public class CarDBHelper extends SQLiteOpenHelper { //Lớp này để khởi t�
     public static String NAMSX = "nam_sx", SL = "soluong", DUNGTICH = "dung_tich", HOPSO = "hop_so", MUCTIEUTHU = "muc_tieu_thu", VMAX = "v_max", GIA = "gia";
     public static String NAME = "name", PRODUCT_CODE = "product_code", BRAND = "brand", COLOR = "color", IMG_CODE1 = "image_code1", IMG_CODE2 = "image_code2", IMG_CODE3 = "image_code3";
 
-    public Context context; //khởi tạo 1 đối tượng context
+    public Context context; //khởi tạo đối tượng context
 
     //tạo bảng
     String sql = "CREATE TABLE "+TB_NAME+" ("

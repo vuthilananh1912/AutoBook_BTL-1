@@ -24,6 +24,10 @@ public class LoginActivity extends AppCompatActivity {
     Button btnDN;
     TextView txtViewDK, txtViewQuenMK;
 
+    private String phoneUser = "";
+
+    private long backPressTime;
+
     UserDatabaseData userDatabaseData;
 
     @Override
@@ -33,33 +37,48 @@ public class LoginActivity extends AppCompatActivity {
 
         edtsdt = (EditText) findViewById(R.id.edtsdt);
         edtPass = (EditText) findViewById(R.id.edtPass);
-        cBLuuMK = (CheckBox) findViewById(R.id.cBLuuMK);
+//        cBLuuMK = (CheckBox) findViewById(R.id.cBLuuMK);
         btnDN = (Button) findViewById(R.id.btnDN);
         txtViewDK = (TextView) findViewById(R.id.txtViewDK);
         txtViewQuenMK = (TextView) findViewById(R.id.txtViewQuenMK);
 
+        //khởi tạo class database để chuẩn bị chèn user
         userDatabaseData = new UserDatabaseData(LoginActivity.this);
 
-        //đang lỗi
-        userDatabaseData.addUser(new User("Lê Mạnh Cường","0372843798","cuong1806","GLC 300","18/06/2022"));
+        //chèn user mẫu :v
+        //userDatabaseData.addUser(new User("Lê Mạnh Cường","0372843798","cuong1806","GLC 300","18/06/2022"));
 
+//        User userInfo = userDatabaseData.findUserLogin("0372843798");
+//        phoneUser = userInfo.getPhone();
     }
 
-    public void rememberPass(String userName, String Pass, boolean status)
-    {
-        SharedPreferences sPref = getSharedPreferences( "User", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sPref.edit();
-        if(status == false)
-        {
-            editor.clear();
+    //ấn back 2 lần để thoát và đăng xuất
+    @Override
+    public void onBackPressed() {
+        if(backPressTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed();
+            return;
+        }else{
+            Toast.makeText(this, "Nhấn phím trở về ↩️ 1 lần nữa để thoát", Toast.LENGTH_SHORT).show();
         }
-        else {
-            editor.putString("USERNAME", userName);
-            editor.putString("PASSWORD", Pass);
-            editor.putBoolean("REMEMBER", status);
-        }
-        editor.commit();
+        backPressTime = System.currentTimeMillis();
     }
+
+//    public void rememberPass(String userName, String Pass, boolean status)
+//    {
+//        SharedPreferences sPref = getSharedPreferences( "User", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = sPref.edit();
+//        if(status == false)
+//        {
+//            editor.clear();
+//        }
+//        else {
+//            editor.putString("USERNAME", userName);
+//            editor.putString("PASSWORD", Pass);
+//            editor.putBoolean("REMEMBER", status);
+//        }
+//        editor.commit();
+//    }
     public int checkLogin(String u, String p)
     {
         if (u.equals("admin") && p.equals("admin"))
@@ -67,7 +86,7 @@ public class LoginActivity extends AppCompatActivity {
             return 1;
         }else
         {
-            return 01;
+            return 0;
         }
     }
 
@@ -87,23 +106,27 @@ public class LoginActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent( getApplicationContext(), MainActivity.class));
+                        Intent loginToMainIntent = new Intent( getApplicationContext(), MainActivity.class);
+                        loginToMainIntent.putExtra("phoneUser",phoneUser);
+                        startActivity(loginToMainIntent);
                     }
                 }, 2000);
             }
         }
     }
 
-    public void savePass(View view){
-        String userName = edtsdt.getText().toString();
-        String Pass = edtPass.getText().toString();
-        boolean status = cBLuuMK.isChecked();
-        rememberPass(userName, Pass, status);
-    }
+//    public void savePass(View view){
+//        String userName = edtsdt.getText().toString();
+//        String Pass = edtPass.getText().toString();
+//        boolean status = cBLuuMK.isChecked();
+//        rememberPass(userName, Pass, status);
+//    }
     public void register(View view){
         Intent intent = new Intent( this, Register.class);
         startActivity(intent);
         finish();
     }
-
+    public void quenMK(View view){
+        Toast.makeText(this, "Hãy giải lao đi, khi khác quay lại bạn sẽ nhớ lại mật khẩu thôi", Toast.LENGTH_LONG).show();
+    }
 }

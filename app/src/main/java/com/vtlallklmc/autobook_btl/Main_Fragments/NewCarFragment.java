@@ -55,5 +55,4 @@ public class NewCarFragment extends Fragment {
         });
         return view;
     }
-
 }

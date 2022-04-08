@@ -13,6 +13,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.vtlallklmc.autobook_btl.Car.Car;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> lstCarResult = new ArrayList<>();
     DatabaseData databaseData;
 
-    String keyword;
+    String keyword, phoneUser; //phoneUser để làm id trung gian truyền từ Login Activity sang Personal Fragment
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -128,6 +129,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+        Intent receivedFromLoginIntent = getIntent();
+        phoneUser = receivedFromLoginIntent.getStringExtra("phoneUser");
     }
     private void setUpViewPager(){
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -162,5 +166,9 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public String getPhoneUser() {
+        return phoneUser;
     }
 }

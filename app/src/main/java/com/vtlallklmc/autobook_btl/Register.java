@@ -14,13 +14,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.vtlallklmc.autobook_btl.Main_Fragments.MainActivity;
+import com.vtlallklmc.autobook_btl.User.User;
+import com.vtlallklmc.autobook_btl.User.UserDatabaseData;
 
+//TÔI NGHĨ TÔI SẼ CODE LẠI ĐĂNG KÝ ĐĂNG NHẬP :(
 public class Register extends AppCompatActivity {
 
-    EditText edtName, edtNameDN, edtSdtDK, edtPassDK;
+    EditText edtName, edtSdtDK, edtPassDK, edtPassDK2;
     CheckBox cBLuuMKDK;
     Button btnDK;
     TextView txtViewDNTKKhac;
+
+    User newUser;
+
+    private String phoneUser = "";
+
+    UserDatabaseData userDatabaseData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +40,8 @@ public class Register extends AppCompatActivity {
 //        edtNameDN = (EditText) findViewById(R.id.edtNameDN);
         edtSdtDK = (EditText) findViewById(R.id.edtSdtDK);
         edtPassDK = (EditText) findViewById(R.id.edtPassDK);
-        cBLuuMKDK = (CheckBox) findViewById(R.id.cBLuuMKDK);
+        edtPassDK2 = (EditText) findViewById(R.id.edtPassDK2);
+//        cBLuuMKDK = (CheckBox) findViewById(R.id.cBLuuMKDK);
         btnDK = (Button) findViewById(R.id.btnDK);
         txtViewDNTKKhac = (TextView) findViewById(R.id.txtViewDNTKKhac);
     }
@@ -49,7 +59,7 @@ public class Register extends AppCompatActivity {
         editor.commit();
     }
 
-    public int checkRegistration(String N, String NDN, String SdtDK, String PassDK) {
+    public int checkRegistration(String N, String NDN, String SdtDK, String PassDK, String PassDK2) {
         if (N.equals("admin") && NDN.equals("admin") && SdtDK.equals("admin") && PassDK.equals("admin")) {
             return 1;
         } else {
@@ -57,25 +67,32 @@ public class Register extends AppCompatActivity {
         }
     }
 
-    String strN, strNDN, strSdtDK, strPassDK;
+    String strN, strSdtDK, strPassDK, strPassDK2;
 
     public void checkRegistration(View view) {
         strN = edtName.getText().toString();
-        strNDN = edtNameDN.getText().toString();
+//        strNDN = edtNameDN.getText().toString();
         strSdtDK = edtSdtDK.getText().toString();
         strPassDK = edtPassDK.getText().toString();
+        strPassDK2 = edtPassDK2.getText().toString();
 
-        if ( strN.isEmpty() || strNDN.isEmpty() || strSdtDK.isEmpty() || strPassDK.isEmpty()) {
+
+        if ( strN.isEmpty() || strSdtDK.isEmpty() || strPassDK.isEmpty() || strPassDK2.isEmpty()) {
             Toast.makeText(getApplicationContext(), "Không được để trống thông tin",
                     Toast.LENGTH_LONG).show();
-        } else if (checkRegistration(strN, strNDN, strSdtDK, strPassDK )>0)
+        } else if (checkRegistration(strN, strSdtDK, strPassDK, strPassDK2, strPassDK2)>0)
         {
             Toast.makeText(getApplicationContext(), "Đăng ký thành công",
                     Toast.LENGTH_LONG).show();
             new Handler().postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                    newUser = new User(strN,strSdtDK,strPassDK,null,null);
+                    userDatabaseData.addUser(newUser);
+                    phoneUser = strSdtDK;
+                    Intent registerToMainIntent =  new Intent(getApplicationContext(), MainActivity.class);
+                    registerToMainIntent.putExtra("phoneUser",phoneUser);
+                    startActivity(registerToMainIntent);
                 }
             }, 2000);
         }
