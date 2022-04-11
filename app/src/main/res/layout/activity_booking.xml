@@ -75,8 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="26dp"
-                android:text=" * Thời hạn đặt cọc tối đa là: 15 (mười lăm) ngày, kể từ ngày ký hợp đồng đặt cọc này.\n * Hết thời gian trên, nếu không thực hiện việc đặt cọc thì giao dịch này không có giá trị thực hiện.\n * Quý khách có quyền được hoàn trả số tiền đặt cọc nếu cửa hàng từ chối hợp đồng hoặc quá thời hạn đặt lịch mà sản phẩm chưa có sẵn.\n
-* Nếu khách hàng đã đặt cọc nhưng có thay đổi quyết định sau này, quý khách sẽ không được hoàn trả số tiền đặt cọc" />
+                android:text=" 1. Thời hạn đặt cọc tối đa là: 15 (mười lăm) ngày, kể từ ngày ký hợp đồng đặt cọc này.\n 2. Hết thời gian trên, nếu không thực hiện việc đặt cọc thì giao dịch này không có giá trị thực hiện.\n 3. Quý khách có quyền được hoàn trả số tiền đặt cọc nếu cửa hàng từ chối hợp đồng hoặc quá thời hạn đặt lịch mà sản phẩm chưa có sẵn.\n
+4. Nếu khách hàng đã đặt cọc nhưng có thay đổi quyết định sau này, quý khách sẽ không được hoàn trả số tiền đặt cọc\n 5. Để đảm bảo tính đúng đắn, quý khách chỉ được phép đặt cọc 01 xe vào khoảng thời gian chờ nhận xe. Nếu đặt thêm xe, quý khách sẽ bị hủy đặt cọc xe đã đặt và tiền đặt cọc sẽ áp dụng quy định ở mục '4'" />
 
             <TextView
                 android:id="@+id/tvDate"
@@ -96,6 +96,14 @@
                 android:layout_marginBottom="10dp"
                 android:text="Giờ mua: Chưa đặt"
                 android:textSize="22dp"
+                android:textStyle="bold" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tôi đã nắm rõ điều khoản"
+                android:textSize="16dp"
                 android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>

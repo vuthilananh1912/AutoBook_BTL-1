@@ -27,12 +27,14 @@ public class BestSelledFragment extends Fragment {
     CarAdapter carAdapter;
     Context context;
 
+    private MainActivity parentActivity;
     DatabaseData databaseData;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.best_selled_fragment,container,false);
+        parentActivity = (MainActivity) getActivity();
 
         lvBestSelledCar = view.findViewById(R.id.lvBestSelled);
 

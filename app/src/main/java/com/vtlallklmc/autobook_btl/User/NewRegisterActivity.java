@@ -12,13 +12,12 @@ import android.widget.Toast;
 import com.google.android.material.textfield.TextInputEditText;
 import com.vtlallklmc.autobook_btl.Main_Fragments.MainActivity;
 import com.vtlallklmc.autobook_btl.R;
+import com.vtlallklmc.autobook_btl.UserID;
 
 public class NewRegisterActivity extends AppCompatActivity {
     TextInputEditText edtFullname, edtPhoneRegister, edtMKRegister, edtMKRegister2;
     Button btnRegister;
     TextView txtLoginRegister;
-
-    String id;
 
     User user;
     UserDatabaseData userDatabaseData;
@@ -47,14 +46,15 @@ public class NewRegisterActivity extends AppCompatActivity {
                     Toast.makeText(NewRegisterActivity.this, "Số điện thoại bắt buộc có 10 số và bắt đầu bằng 0...", Toast.LENGTH_SHORT).show();
                 }else if(mk.length()<=6){
                     Toast.makeText(NewRegisterActivity.this, "Mật khẩu tối thiểu phải 6 kí tự", Toast.LENGTH_SHORT).show();
+                }else if(userDatabaseData.checkExists(phone)==true){
+                    Toast.makeText(NewRegisterActivity.this, "Đã đăng ký tài khoản khác với số điện thoại này", Toast.LENGTH_SHORT).show();
                 }else {
                     Toast.makeText(NewRegisterActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                     user = new User(fullname,phone,mk,null,null);
                     userDatabaseData.addUser(user);
-                    id = phone;
+                    UserID.ID = phone;
 
                     Intent registerToMain = new Intent(NewRegisterActivity.this, MainActivity.class);
-                    registerToMain.putExtra("id",id);
                     startActivity(registerToMain);
                 }
             }
@@ -62,7 +62,7 @@ public class NewRegisterActivity extends AppCompatActivity {
         txtLoginRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                return;
+                finish();
             }
         });
     }

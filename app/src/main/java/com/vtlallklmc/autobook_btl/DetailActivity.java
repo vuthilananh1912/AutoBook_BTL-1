@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.vtlallklmc.autobook_btl.Car.Car;
 import com.vtlallklmc.autobook_btl.Car.DatabaseData;
@@ -20,6 +21,7 @@ public class DetailActivity extends AppCompatActivity {
     TextView tvName,tvGia,tvDatCoc,tvColor,tvDungTich,tvHopSo,tvMucTieuThu,tvVmax;
     ImageView img1, img2, img3;
     Button btnBook,btnBack;
+
     int id;
 
     @Override

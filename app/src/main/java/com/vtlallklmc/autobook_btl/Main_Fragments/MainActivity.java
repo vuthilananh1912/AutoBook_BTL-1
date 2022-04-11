@@ -20,6 +20,7 @@ import com.vtlallklmc.autobook_btl.Car.Car;
 import com.vtlallklmc.autobook_btl.Car.DatabaseData;
 import com.vtlallklmc.autobook_btl.DetailActivity;
 import com.vtlallklmc.autobook_btl.R;
+import com.vtlallklmc.autobook_btl.User.UserDatabaseData;
 
 import java.util.ArrayList;
 
@@ -29,15 +30,19 @@ public class MainActivity extends AppCompatActivity {
     AutoCompleteTextView searchBar;
     ImageButton btnSearch;
     ArrayList<String> lstCarResult = new ArrayList<>();
+
     DatabaseData databaseData;
 
-    String keyword, phoneUser; //phoneUser để làm id trung gian truyền từ Login Activity sang Personal Fragment
+    String keyword;
+
+    private long backPressTime; //thời gian chờ nhấn nút back 2 lần liên tiếp
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //anh xa
         navigationView = findViewById(R.id.bottom_nav);
         viewPager = findViewById(R.id.view_pager);
 
@@ -129,9 +134,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
-
-        Intent receivedFromLoginIntent = getIntent();
-        phoneUser = receivedFromLoginIntent.getStringExtra("phoneUser");
     }
     private void setUpViewPager(){
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
@@ -167,8 +169,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    public String getPhoneUser() {
-        return phoneUser;
+    //ấn back 2 lần để thoát và đăng xuất
+    @Override
+    public void onBackPressed() {
+        if(backPressTime + 2000 > System.currentTimeMillis()){
+            super.onBackPressed();
+            return;
+        }else{
+            Toast.makeText(this, "Nhấn phím trở về ↩️ 1 lần nữa để thoát", Toast.LENGTH_SHORT).show();
+        }
+        backPressTime = System.currentTimeMillis();
     }
 }

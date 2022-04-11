@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -24,22 +25,32 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.vtlallklmc.autobook_btl.Main_Fragments.MainActivity;
+import com.vtlallklmc.autobook_btl.User.NewLoginActivity;
+import com.vtlallklmc.autobook_btl.User.User;
+import com.vtlallklmc.autobook_btl.User.UserDatabaseData;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class BookingActivity extends AppCompatActivity {
     Button btnDate, btnSave, btnCancel;
-    String getDate, getTime, message;
     TextView tvDate, tvTime;
-    long rawDate;
+    CheckBox checkBox;
+
+    String getDate, getTime, message; //biến lưu ngày, lưu giờ, lưu thông điệp để chèn vào intent Calendar
+    String nameCar; //lưu tên xe đặt
+
+    long rawDate; //biến lưu ngày giờ hiện tại theo milisecond tính từ Công Nguyên (UNIX time)
     Calendar datetime;
     Calendar currentDateTime;
+
+    UserDatabaseData userDatabaseData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
+        userDatabaseData = new UserDatabaseData(BookingActivity.this);
 
         //ánh xạ
         btnDate = findViewById(R.id.btnDate);
@@ -47,10 +58,12 @@ public class BookingActivity extends AppCompatActivity {
         btnCancel = findViewById(R.id.btnCancel);
         tvDate = findViewById(R.id.tvDate);
         tvTime = findViewById(R.id.tvTime);
+        checkBox = findViewById(R.id.checkBox);
 
         //nhận name của intent Detail Activity
         Intent receiveIntent = getIntent();
-        String nameCar = receiveIntent.getStringExtra("name");
+        nameCar = receiveIntent.getStringExtra("name");
+
         //
 
         btnDate.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +76,7 @@ public class BookingActivity extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(getDate==null || getTime==null)
-                    {
+                if(getDate==null || getTime==null) {
                         AlertDialog.Builder require = new AlertDialog.Builder(BookingActivity.this);
                         require.setMessage("Vui lòng chọn lại ngày giờ đặt mua!");
                         require.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
@@ -75,6 +87,9 @@ public class BookingActivity extends AppCompatActivity {
                         });
                         require.show();
                     }
+                else if(checkBox.isChecked()==false){
+                    Toast.makeText(BookingActivity.this, "Vui lòng xác nhận điều khoản", Toast.LENGTH_SHORT).show();
+                }
                     else{
                     AlertDialog.Builder confirm = new AlertDialog.Builder(BookingActivity.this);
                     confirm.setTitle("Xác nhận đặt lịch");
@@ -99,11 +114,14 @@ public class BookingActivity extends AppCompatActivity {
                             pushIntent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, Calendar.getInstance().getTimeZone().getID());
 
                             startActivity(pushIntent);
+
                             Toast.makeText(BookingActivity.this, "Ấn nút 'Lưu' ở góc trên bên phải để lưu sự kiện trọng đại này nhé!", Toast.LENGTH_LONG).show();
                             Toast.makeText(BookingActivity.this, "Thông tin đã được cài đặt sẵn, nút 'Lưu' ở góc trên bên phải↗️", Toast.LENGTH_LONG).show();
                             Toast.makeText(BookingActivity.this, "Cảm ơn quý khách đã đặt mua xe ❤️", Toast.LENGTH_SHORT).show();
 
-
+                            User user = userDatabaseData.findUserLogin(UserID.ID);
+                            userDatabaseData.updateUser(new User(user.getFullname(),user.getPhone(),user.getPassword(),nameCar,getDate),UserID.ID);
+                            finish();
                         }
                     });
                     confirm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
@@ -187,5 +205,17 @@ public class BookingActivity extends AppCompatActivity {
             }
         },currentDateTime.get(Calendar.YEAR),currentDateTime.get(Calendar.MONTH),currentDateTime.get(Calendar.DATE));
         datePickerDialog.show();
+    }
+
+    public String getGetDate() {
+        return getDate;
+    }
+
+    public String getGetTime() {
+        return getTime;
+    }
+
+    public String getNameCar() {
+        return nameCar;
     }
 }

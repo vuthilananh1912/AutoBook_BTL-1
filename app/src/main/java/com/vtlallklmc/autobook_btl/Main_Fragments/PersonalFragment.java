@@ -1,5 +1,6 @@
 package com.vtlallklmc.autobook_btl.Main_Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,10 +13,13 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.vtlallklmc.autobook_btl.BookingActivity;
 import com.vtlallklmc.autobook_btl.LoginActivity;
 import com.vtlallklmc.autobook_btl.R;
+import com.vtlallklmc.autobook_btl.User.NewLoginActivity;
 import com.vtlallklmc.autobook_btl.User.User;
 import com.vtlallklmc.autobook_btl.User.UserDatabaseData;
+import com.vtlallklmc.autobook_btl.UserID;
 
 public class PersonalFragment extends Fragment {
     TextView fullname;
@@ -41,12 +45,20 @@ public class PersonalFragment extends Fragment {
         waitingCar = view.findViewById(R.id.waiting_car);
         logout = view.findViewById(R.id.btnLogOut);
 
-        User userInfo = userDatabaseData.findUserLogin(parentActivity.getPhoneUser());
+        User userInfo = userDatabaseData.findUserLogin(UserID.ID);
 
         fullname.setText("Xin chào "+userInfo.getFullname()+"!😚");
         phoneNumber.setText(userInfo.getPhone());
-        waitingCar.setText(userInfo.getCarname());
+        if(userInfo.getCarname()==null){
+            waitingCar.setText("Không có xe nào, đang chờ bạn mua đó");
+        }else waitingCar.setText(userInfo.getCarname()+" - "+userInfo.getBookingDate());
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                parentActivity.finish();
+            }
+        });
         return view;
     }
 }

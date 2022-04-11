@@ -16,16 +16,21 @@
         android:theme="@style/Theme.AutoBook_BTL">
         <activity
             android:name=".User.NewRegisterActivity"
+            android:exported="false">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".User.NewLoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".User.NewLoginActivity"
-            android:exported="false">
         </activity>
         <activity
             android:name=".Register"
