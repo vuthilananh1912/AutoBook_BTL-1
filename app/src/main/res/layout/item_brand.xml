@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitCenter"
-        app:srcCompat="@drawable/ic_mazda_svgrepo_com"
         android:layout_weight="1" />
 
 </androidx.cardview.widget.CardView>

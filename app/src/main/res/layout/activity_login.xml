@@ -38,8 +38,8 @@
         android:layout_marginRight="25dp"
         android:ems="10"
         android:hint="Số điện thoại"
-        android:minHeight="48dp"
-        android:inputType="phone"/>
+        android:inputType="phone"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/edtPass"
@@ -102,9 +102,9 @@
         android:layout_marginTop="44dp"
         android:layout_marginRight="44dp"
         android:layout_toRightOf="@id/txtViewDK"
+        android:onClick="quenMK"
         android:text="Quên mật khẩu?"
         android:textColor="#000"
-        android:textSize="15dp"
-        android:onClick="quenMK"/>
+        android:textSize="15dp" />
 
 </RelativeLayout>
