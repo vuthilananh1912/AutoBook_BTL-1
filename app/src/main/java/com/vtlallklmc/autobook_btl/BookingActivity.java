@@ -113,15 +113,19 @@ public class BookingActivity extends AppCompatActivity {
                             pushIntent.putExtra(CalendarContract.Events.CALENDAR_ID, 1);
                             pushIntent.putExtra(CalendarContract.Events.EVENT_TIMEZONE, Calendar.getInstance().getTimeZone().getID());
 
+                            User user = userDatabaseData.findUserLogin(UserID.ID);
+                            userDatabaseData.updateUser(new User(user.getFullname(),user.getPhone(),user.getPassword(),nameCar,getDate),UserID.ID);
+
+                            Intent goHomeIntent = new Intent(BookingActivity.this, MainActivity.class);
+                            startActivity(goHomeIntent);
+
                             startActivity(pushIntent);
 
                             Toast.makeText(BookingActivity.this, "Ấn nút 'Lưu' ở góc trên bên phải để lưu sự kiện trọng đại này nhé!", Toast.LENGTH_LONG).show();
                             Toast.makeText(BookingActivity.this, "Thông tin đã được cài đặt sẵn, nút 'Lưu' ở góc trên bên phải↗️", Toast.LENGTH_LONG).show();
                             Toast.makeText(BookingActivity.this, "Cảm ơn quý khách đã đặt mua xe ❤️", Toast.LENGTH_SHORT).show();
 
-                            User user = userDatabaseData.findUserLogin(UserID.ID);
-                            userDatabaseData.updateUser(new User(user.getFullname(),user.getPhone(),user.getPassword(),nameCar,getDate),UserID.ID);
-                            finish();
+
                         }
                     });
                     confirm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {
