@@ -49,7 +49,7 @@ public class BrandFragment extends Fragment {
                 Intent intentSend = new Intent(inflater.getContext(), DetailActivity.class);
                 intentSend.putExtra("keyword",lstBrandCar.get(i).getName());
                 startActivity(intentSend);
-                parentActivity.finish();
+//                parentActivity.finish();
             }
         });
         return view;

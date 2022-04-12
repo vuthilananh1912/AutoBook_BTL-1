@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentSend = new Intent(MainActivity.this, DetailActivity.class);
                 intentSend.putExtra("keyword",keyword);
                 startActivity(intentSend);
-                finish();
+//                finish();
                 searchBar.setText("");
                 searchBar.clearFocus();
             }

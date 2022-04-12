@@ -13,8 +13,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
-import com.vtlallklmc.autobook_btl.BookingActivity;
-import com.vtlallklmc.autobook_btl.LoginActivity;
 import com.vtlallklmc.autobook_btl.R;
 import com.vtlallklmc.autobook_btl.User.NewLoginActivity;
 import com.vtlallklmc.autobook_btl.User.User;
@@ -56,6 +54,8 @@ public class PersonalFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent goHome = new Intent(inflater.getContext(),NewLoginActivity.class);
+                startActivity(goHome);
                 parentActivity.finish();
             }
         });

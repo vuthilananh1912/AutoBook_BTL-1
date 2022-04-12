@@ -33,18 +33,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Register"
-            android:exported="false" />
-        <activity
             android:name=".BookingActivity"
             android:exported="false" />
         <activity
             android:name=".DetailActivity"
             android:exported="false" />
-        <activity
-            android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
         <activity
             android:name=".Main_Fragments.MainActivity"
             android:exported="false">

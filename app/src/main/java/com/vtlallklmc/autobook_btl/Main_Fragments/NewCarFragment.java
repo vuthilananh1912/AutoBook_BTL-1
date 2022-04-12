@@ -51,7 +51,7 @@ public class NewCarFragment extends Fragment {
                 Intent intentSend = new Intent(inflater.getContext(), DetailActivity.class);
                 intentSend.putExtra("keyword",lstNewCar.get(i).getName());
                 startActivity(intentSend);
-                parentActivity.finish();
+//                parentActivity.finish();
             }
         });
         return view;
