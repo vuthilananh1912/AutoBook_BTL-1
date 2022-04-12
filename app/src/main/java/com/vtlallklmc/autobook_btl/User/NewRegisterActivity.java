@@ -56,6 +56,7 @@ public class NewRegisterActivity extends AppCompatActivity {
 
                     Intent registerToMain = new Intent(NewRegisterActivity.this, MainActivity.class);
                     startActivity(registerToMain);
+                    finish();
                 }
             }
         });

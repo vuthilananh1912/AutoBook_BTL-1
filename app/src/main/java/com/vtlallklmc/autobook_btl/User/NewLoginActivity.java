@@ -48,6 +48,7 @@ public class NewLoginActivity extends AppCompatActivity {
 
                     Intent loginToMain = new Intent(NewLoginActivity.this, MainActivity.class);
                     startActivity(loginToMain);
+                    finish();
                     edtPasswordLogin.setText("");
                     edtPasswordLogin.clearFocus();
                 } else {
@@ -60,6 +61,7 @@ public class NewLoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent loginToRegister = new Intent(NewLoginActivity.this, NewRegisterActivity.class);
                 startActivity(loginToRegister);
+                finish();
             }
         });
         tvForgotPassword.setOnClickListener(new View.OnClickListener() {

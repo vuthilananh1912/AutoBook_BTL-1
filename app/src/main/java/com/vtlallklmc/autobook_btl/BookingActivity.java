@@ -120,12 +120,11 @@ public class BookingActivity extends AppCompatActivity {
                             startActivity(goHomeIntent);
 
                             startActivity(pushIntent);
+                            finish();
 
                             Toast.makeText(BookingActivity.this, "Ấn nút 'Lưu' ở góc trên bên phải để lưu sự kiện trọng đại này nhé!", Toast.LENGTH_LONG).show();
                             Toast.makeText(BookingActivity.this, "Thông tin đã được cài đặt sẵn, nút 'Lưu' ở góc trên bên phải↗️", Toast.LENGTH_LONG).show();
                             Toast.makeText(BookingActivity.this, "Cảm ơn quý khách đã đặt mua xe ❤️", Toast.LENGTH_SHORT).show();
-
-
                         }
                     });
                     confirm.setNegativeButton("Hủy", new DialogInterface.OnClickListener() {

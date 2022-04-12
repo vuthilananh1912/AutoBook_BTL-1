@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intentSend = new Intent(MainActivity.this, DetailActivity.class);
                 intentSend.putExtra("keyword",keyword);
                 startActivity(intentSend);
+                finish();
                 searchBar.setText("");
                 searchBar.clearFocus();
             }
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent intentSend = new Intent(MainActivity.this,DetailActivity.class);
                     intentSend.putExtra("keyword",keyword);
                     startActivity(intentSend);
+                    finish();
                     searchBar.setText("");
                     searchBar.clearFocus();
                 }
@@ -174,7 +176,7 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         if(backPressTime + 2000 > System.currentTimeMillis()){
             super.onBackPressed();
-            return;
+            finish();
         }else{
             Toast.makeText(this, "Nhấn phím trở về ↩️ 1 lần nữa để thoát", Toast.LENGTH_SHORT).show();
         }
