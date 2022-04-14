@@ -65,4 +65,18 @@ public class UserDatabaseData {
         db.update(CarDBHelper.USER_TB_NAME,contentValues,CarDBHelper.PHONE + "=?",new String[]{ID});
         db.close();
     }
+
+    public void UpdateUserName(String sdt , String name){
+        //ContentValues contentValues = new ContentValues();
+        SQLiteDatabase db = carDBHelper.getWritableDatabase();
+        //contentValues.put(CarDBHelper.NAME, name);
+        //db.update(CarDBHelper.FULLNAME, contentValues, CarDBHelper.PHONE + "=?", new String[] {sdt});
+
+        db.rawQuery("UPDATE " + CarDBHelper.USER_TB_NAME + " SET " + CarDBHelper.FULLNAME + "=? WHERE " + CarDBHelper.PHONE + "="+ sdt,new String[]{name});
+        db.close();
+
+        //Cursor cursor = db.rawQuery( "SELECT * FROM " + CarDBHelper.USER_TB_NAME + " WHERE " + CarDBHelper.PHONE
+
+    }
 }
+

@@ -15,13 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AutoBook_BTL">
         <activity
+            android:name=".User.UpdateUActivity"
+            android:exported="false" />
+        <activity
             android:name=".User.NewRegisterActivity"
             android:exported="false">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
 
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity
             android:name=".User.NewLoginActivity"
@@ -40,8 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".Main_Fragments.MainActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false"></activity>
     </application>
 
 </manifest>

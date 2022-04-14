@@ -13,8 +13,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.vtlallklmc.autobook_btl.BookingActivity;
+//import com.vtlallklmc.autobook_btl.LoginActivity;
 import com.vtlallklmc.autobook_btl.R;
 import com.vtlallklmc.autobook_btl.User.NewLoginActivity;
+import com.vtlallklmc.autobook_btl.User.UpdateUActivity;
 import com.vtlallklmc.autobook_btl.User.User;
 import com.vtlallklmc.autobook_btl.User.UserDatabaseData;
 import com.vtlallklmc.autobook_btl.UserID;
@@ -22,7 +25,7 @@ import com.vtlallklmc.autobook_btl.UserID;
 public class PersonalFragment extends Fragment {
     TextView fullname;
     TextInputEditText phoneNumber, waitingCar;
-
+    Button btnUpdateU;
     UserDatabaseData userDatabaseData;
     Button logout;
 
@@ -42,6 +45,9 @@ public class PersonalFragment extends Fragment {
         phoneNumber = view.findViewById(R.id.phone);
         waitingCar = view.findViewById(R.id.waiting_car);
         logout = view.findViewById(R.id.btnLogOut);
+        btnUpdateU = view.findViewById(R.id.btnUpdateU);
+
+
 
         User userInfo = userDatabaseData.findUserLogin(UserID.ID);
 
@@ -54,8 +60,18 @@ public class PersonalFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent goHome = new Intent(inflater.getContext(),NewLoginActivity.class);
-                startActivity(goHome);
+                parentActivity.finish();
+            }
+        });
+
+
+        btnUpdateU.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(inflater.getContext(), UpdateUActivity.class);
+                intent.putExtra("Name",userInfo.getFullname());
+                intent.putExtra("Phone",userInfo.getPhone());
+                startActivity(intent);
                 parentActivity.finish();
             }
         });
